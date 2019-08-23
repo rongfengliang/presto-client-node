@@ -170,7 +170,7 @@ var client = new presto.Client({
 ```
 
 ## Versions
-* 0.6.1:
+* 0.6.2:
   * add routingGroup  support presto-gateway
 * 0.6.0:
   * add X-Presto-Source if "source" specified

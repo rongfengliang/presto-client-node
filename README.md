@@ -1,16 +1,20 @@
 # presto-client-node
 
+
+> fork from https://github.com/tagomoris/presto-client-node and add presto-gateway support
+
 Distributed query engine "Presto" 's client library for node.js.
 
 ```js
-var presto = require('presto-client');
+var presto = require('@dalongrong/presto-client');
 var client = new presto.Client({user: 'myname'});
 
 client.execute({
   query:   'SELECT count(*) as cnt FROM tblname WHERE ...',
-  catalog: 'hive',
-  schema:  'default',
-  source:  'nodejs-client',
+  catalog: 'memory',
+  schema: 'default',
+  source: 'nodejs-client',
+  routingGroup: 'scheduled',
   state:   function(error, query_id, stats){ console.log({message:"status changed", id:query_id, stats:stats}); },
   columns: function(error, data){ console.log({resultColumns: data}); },
   data:    function(error, data, columns, stats){ console.log(data); },
@@ -22,10 +26,10 @@ client.execute({
 ## Installation
 
 ```
-npm install -g presto-client
+npm install -g @dalongrong/presto-client
 ```
 
-Or add `presto-client` to your own `packagen.json`, and do `npm install`.
+Or add `@dalongrong/presto-client` to your own `packagen.json`, and do `npm install`.
 
 ## API
 
@@ -83,6 +87,7 @@ Attributes of opts [object] are:
 * catalog [string]
 * schema [string]
 * timezone [string :optional]
+* routingGroup  [string :optional] presto-gateway routingGroup name
 * info [boolean :optional]
   * fetch query info (execution statistics) for success callback, or not (default false)
 * cancel [function() :optional]
@@ -165,7 +170,8 @@ var client = new presto.Client({
 ```
 
 ## Versions
-
+* 0.6.1:
+  * add routingGroup  support presto-gateway
 * 0.6.0:
   * add X-Presto-Source if "source" specified
 * 0.5.0:

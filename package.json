@@ -1,6 +1,6 @@
 {
-  "name": "presto-client",
-  "version": "0.6.0",
+  "name": "@dalongrong/presto-client",
+  "version": "0.6.1",
   "description": "Distributed query engine Presto client library for node.js",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tagomoris/presto-client-node.git"
+    "url": "git://github.com/rongfengliang/presto-client-node.git"
   },
   "keywords": [
     "presto"
   ],
-  "author": "tagomoris",
+  "author": "dalongrong",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tagomoris/presto-client-node/issues"
+    "url": "https://github.com/rongfengliang/presto-client-node/issues"
   }
 }

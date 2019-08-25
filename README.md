@@ -57,6 +57,8 @@ Instanciate client object and set default configurations.
     * Username of query (default: process user name)
   * source [string]
     * Source of query (default: nodejs-client)
+  * routingGroup  
+    * presto-gateway routingGroup name (default: adhoc)
   * basic_auth [object]
     * Pass in a user and password to enable Authorization Basic headers on all requests.
     * basic_auth: {user: "user", password: "password"} (default:null)
@@ -170,8 +172,12 @@ var client = new presto.Client({
 ```
 
 ## Versions
+* 0.6.4
+  * bugfix for get X-Presto-Routing-Group from client config
+* 0.6.3:
+  * support get X-Presto-Routing-Group from client config
 * 0.6.2:
-  * add routingGroup  support presto-gateway
+  * add X-Presto-Routing-Group  support presto-gateway
 * 0.6.0:
   * add X-Presto-Source if "source" specified
 * 0.5.0:
